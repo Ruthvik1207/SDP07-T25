@@ -3,7 +3,7 @@ import { AuthCtx } from '../context/AuthContext';
 import PageWrapper from '../components/PageWrapper';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-const API_BASE = 'http://localhost:8080/api';
+const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8080/api';
 
 const Voting = () => {
   const { authToken } = useContext(AuthCtx);
@@ -97,7 +97,7 @@ const Voting = () => {
     return (
       <div className="candidates-grid">
         {cands.map(c => {
-          const isVotedThis = votedUser && votedUser.voted_for == c.id;
+          const isVotedThis = votedUser && votedUser.voted_for === c.id;
           const hasVotedAny = votedUser && votedUser.has_voted;
           
           return (
