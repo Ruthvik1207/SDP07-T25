@@ -1,13 +1,10 @@
 {
-  "name": "voting-system-root",
+  "name": "sdp07-t25-monorepo",
+  "version": "1.0.0",
   "private": true,
-  "engines": {
-    "node": ">=18.x"
-  },
   "scripts": {
-    "install-frontend": "cd frontend && npm install",
-    "build-frontend": "cd frontend && npm run build",
     "build:vercel": "npm install --prefix frontend && npm run build --prefix frontend",
-    "build": "npm run build-frontend"
+    "build": "npm run build --prefix frontend",
+    "install": "npm install --prefix frontend"
   }
 }
